@@ -12,7 +12,7 @@
       searchControl.addSearcher( new google.search.ImageSearch() );
 
       // 検索コントロールを描画する
-      searchControl.draw( document.getElementById( 'content' ) );
+      searchControl.draw( document.getElementById( 'main_img' ) );
 	  console.log("draw method");
 	  
       // 検索を実行する
