@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>LTSSモックアップ</title>
+
+<script src="CountDown.js"></script>
+
+<script>
+$(function(){
+	function check(){
+
+	var flag = 0;
+
+
+		if(document.form1.word.value == ""){ // 「word」の入力をチェック
+
+			flag = 1;
+
+		}
+		
+		if(flag){
+
+		window.alert('未入力です'); // 未入力であれば警告ダイアログを表示
+		return false; // 送信を中止
+
+		}
+		else{
+
+		return true; // 送信を実行
+
+		}
+
+	}
+
+});
+
+
+</script>
+
+<style>
+* {
+margin:0;
+padding:0;
+list-style:none;
+}
+
+#wrap {			/* 全体の外枠 */
+width:1000px;
+height:700px;
+border:1px solid #000;
+margin:auto;
+}
+
+#main {	
+width:700px;
+height:570px;
+float:right;
+margin-top:10px;
+margin-right:10px;
+border:1px solid #000;
+}
+
+#main_img {			/* 検索した画像を表示 */
+width:700px;
+height:500px;
+border:1px solid #000;
+}
+
+#search {
+width:680px;
+height:30px;
+float:right;
+margin-top:10px;
+
+}
+
+#botton {
+width:180px;
+height:30px;
+float:right;
+margin-top:10px;
+margin-right:10px;
+	
+}
+
+
+#count {		/* カウント */
+width:260px;
+height:70px;
+float:left;
+margin-top:15px;
+margin-left:10px;
+border:1px solid #000;
+}
+
+#setting {			/* 設定 */
+width:260px;
+height:300px;
+float:left;
+margin-top:15px;
+margin-left:10px;
+border:1px solid #000;
+}
+
+#chat {
+width:260px;
+height:280px;
+float:left;
+margin-top:10px;
+margin-left:10px;
+border:1px solid #000;
+}
+
+#user-Action {
+width:340px;
+height:100px;
+float:left;
+margin-top:10px;
+margin-left:15px;
+border:1px solid #000;	
+}
+
+#hyouka {
+width:340px;
+height:100px;
+float:left;
+margin-top:10px;
+margin-left:15px;
+border:1px solid #000;	
+}
+
+
+
+</style>
+
+
+</head>
+
+<body>
+
+<div id="wrap">
+
+<div id="main">
+
+<div id="main_img">
+
+<!--
+<p>検索した画像を表示</p>
+
+<div id="search">
+<form action="">
+<input type="text" size="98" style="height:26px;">
+<input type="button" name="search" value="検索" language="javascript" onclick="self.location.href='http://sasuke.main.jp/'" style="width:50px;height:29px;font-size:18px;">
+</form>
+</div>
+-->
+
+
+</div>
+
+<div id="botton">
+<input type="submit" name="btn1" value="aaaaa" style="width:auto; height:29px;">
+<input type="submit" name="btn2" value="bbbbb" style="width:auto; height:29px;">
+<input type="submit" name="btn3" value="ccccc" style="width:auto; height:29px;">
+<input type="submit" name="btn4" value="ddddd" style="width:auto; height:29px;">
+</div>
+
+</div>
+
+<div id="count">
+
+
+</div>
+
+<div id="setting">
+<p>設定</p>
+
+<div id="get_word">
+<p></p>
+</div>
+
+</div>
+
+<div id="chat">
+<form method="POST" action=""　name="form1" onSubmit="return check()">
+<input name="word" type="text" size="28" maxlength="16">
+<input type="submit" value="追加" >
+
+</form>
+</div>
+
+<div id="user-Action">
+<p>閲覧者アクション</p>
+</div>
+
+<div id="hyouka">
+<p>評価</p>
+</div>
+
+</div>
+
+
+
+</body>
+</html>
