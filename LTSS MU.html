@@ -4,6 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>LTSSモックアップ</title>
 
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript" src="more_serach02.js"></script>
+
 <script src="CountDown.js"></script>
 <script type="text/javascript" src="GET.js"></script>
 
@@ -134,6 +137,75 @@ margin-left:15px;
 border:1px solid #000;	
 }
 
+/* 追加　*/
+#inner_main_img{
+width:700px;
+height:500px;
+float:right; 
+position:relative;
+}
+
+.img {
+width:150px;
+height:150px;
+position: absolute;
+}
+
+#img1{  
+top: 10px;  
+left: 20px;  
+}
+
+#img2{  
+top: 10px;  
+left: 190px;  
+}
+#img3{  
+top: 10px;  
+left: 360px;  
+}
+#img4{  
+top: 10px;  
+left: 530px;  
+}
+
+#img5{  
+top: 175px;  
+left: 20px;  
+}
+
+#img6{  
+top: 175px;  
+left: 190px;  
+}
+#img7{  
+top: 175px;  
+left: 360px;  
+}
+#img8{  
+top: 175px;  
+left: 530px;  
+}
+
+#img9{  
+top: 340px;  
+left: 20px;  
+}
+
+#img10{  
+top: 340px;  
+left: 190px;  
+}
+#img11{  
+top: 340px;  
+left: 360px;  
+}
+#img12{  
+top: 340px;  
+left: 530px;  
+}
+
+/*追加終了*/
 
 
 </style>
@@ -153,13 +225,27 @@ border:1px solid #000;
 <div id="main">
 
 <div id="main_img">
-<div id="img">
+<div id="inner_main_img">
+
+<div id="img1" class="img"></div>
+<div id="img2" class="img"></div>
+<div id="img3" class="img"></div>
+<div id="img4" class="img"></div>
+<div id="img5" class="img"></div>
+<div id="img6" class="img"></div>
+<div id="img7" class="img"></div>
+<div id="img8" class="img"></div>
+<div id="img9" class="img"></div>
+<div id="img10" class="img"></div>
+<div id="img11" class="img"></div>
+<div id="img12" class="img"></div>
+
 </div>
 </div>
 
 <div id="search">
 <input type="text" value="" id="search_word" size="35">
-<input type="button" value="検索" id="search_button">
+<input type="button" value="検索" ONCLICK="drawimg()" id="search_button">
 </div>
 
 <div id="page_btn">
