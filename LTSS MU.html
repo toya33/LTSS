@@ -5,6 +5,7 @@
 <title>LTSSモックアップ</title>
 
 <script src="CountDown.js"></script>
+<script type="text/javascript" src="GET.js"></script>
 
 <script>
 $(function(){
@@ -54,7 +55,7 @@ margin:auto;
 
 #main {	
 width:700px;
-height:570px;
+height:530px;
 float:right;
 margin-top:10px;
 margin-right:10px;
@@ -67,29 +68,31 @@ height:500px;
 border:1px solid #000;
 }
 
-#search {
-width:680px;
-height:30px;
-float:right;
-margin-top:10px;
 
+#page_btn {
+width:240px;
+height:30px;
+float:left;
+margin-top:4px;
+margin-left:20px;
+background-color:#0FF;
 }
 
-#botton {
-width:180px;
+#search {
+width:300px;
 height:30px;
 float:right;
-margin-top:10px;
+margin-top:4px;
 margin-right:10px;
 	
 }
 
 
-#count {		/* カウント */
-width:260px;
-height:70px;
+#timer {		/* タイマー */
+width:980px;
+height:60px;
 float:left;
-margin-top:15px;
+margin-top:5px;
 margin-left:10px;
 border:1px solid #000;
 }
@@ -98,12 +101,13 @@ border:1px solid #000;
 width:260px;
 height:300px;
 float:left;
-margin-top:15px;
+margin-top:10px;
 margin-left:10px;
 border:1px solid #000;
+
 }
 
-#chat {
+#word {
 width:260px;
 height:280px;
 float:left;
@@ -112,9 +116,9 @@ margin-left:10px;
 border:1px solid #000;
 }
 
-#user-Action {
+#user-Act {
 width:340px;
-height:100px;
+height:65px;
 float:left;
 margin-top:10px;
 margin-left:15px;
@@ -123,7 +127,7 @@ border:1px solid #000;
 
 #hyouka {
 width:340px;
-height:100px;
+height:65px;
 float:left;
 margin-top:10px;
 margin-left:15px;
@@ -141,48 +145,51 @@ border:1px solid #000;
 
 <div id="wrap">
 
+<div id="timer">
+<p>カウントダウンタイマー</p>
+
+</div>
+
 <div id="main">
 
 <div id="main_img">
-
-<!--
-<p>検索した画像を表示</p>
+<div id="img">
+</div>
+</div>
 
 <div id="search">
-<form action="">
-<input type="text" size="98" style="height:26px;">
-<input type="button" name="search" value="検索" language="javascript" onclick="self.location.href='http://sasuke.main.jp/'" style="width:50px;height:29px;font-size:18px;">
-</form>
-</div>
--->
-
-
+<input type="text" value="" id="search_word" size="35">
+<input type="button" value="検索" id="search_button">
 </div>
 
-<div id="botton">
-<input type="submit" name="btn1" value="aaaaa" style="width:auto; height:29px;">
-<input type="submit" name="btn2" value="bbbbb" style="width:auto; height:29px;">
-<input type="submit" name="btn3" value="ccccc" style="width:auto; height:29px;">
-<input type="submit" name="btn4" value="ddddd" style="width:auto; height:29px;">
+<div id="page_btn">
+<input type="submit" name="btn1" value="ページ" style="width:50px; height:24px;">
+<input type="submit" name="btn2" value="切り替え" style="width:50px; height:24px;">
+<input type="submit" name="btn3" value="ボタンの" style="width:50px; height:24px;">
+<input type="submit" name="btn4" value="予定" style="width:50px; height:24px;">
 </div>
 
 </div>
 
-<div id="count">
 
-
-</div>
 
 <div id="setting">
-<p>設定</p>
+<p>設定</p><br>
+<form method="POST" action=""　name="setting_1">
+<p>音</p>
+<input type="radio" name="sound" value="ON" checked> ON
+<input type="radio" name="sound" value="OFF"> OFF
 
-<div id="get_word">
-<p></p>
+<p>セーフサーチ</p>
+<input type="radio" name="S-search" value="ON" checked> ON
+<input type="radio" name="S-search" value="OFF"> OFF
+
+
+</form>
 </div>
 
-</div>
-
-<div id="chat">
+<div id="word">
+<p>単語予約</p>
 <form method="POST" action=""　name="form1" onSubmit="return check()">
 <input name="word" type="text" size="28" maxlength="16">
 <input type="submit" value="追加" >
@@ -190,7 +197,7 @@ border:1px solid #000;
 </form>
 </div>
 
-<div id="user-Action">
+<div id="user-Act">
 <p>閲覧者アクション</p>
 </div>
 
