@@ -7,18 +7,20 @@
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript" src="more_serach02.js"></script>
 
-<!-- カウントダウン/音声・画面演出 -->
-	<script type="text/javascript" src="CountDown.js"></script>
-	<!-- プログレスバー -->
-	<script type="text/javascript" src="progress.js"></script>
-	<!-- 画面演出に使用 -->
-	<script type="text/javascript" src="jquery-1.3.1.js"></script>
-	<script type="text/javascript" src="effects.core.js"></script>
-	<!-- 時間切れによる画面演出 -->
-	<script type="text/javascript" src="effects.explode.js"></script>
-	<!-- 画面点滅 -->
-	<script type="text/javascript" src="effects.pulsate.js"></script>
-<!-- カウントダウン/音声・画面演出 -->
+
+<script type="text/javascript" src="CountDown.js"></script>
+
+<!-- プログレスバー -->
+<script type="text/javascript" src="progress.js"></script>
+
+<!-- 画面演出に使用 -->
+<script type="text/javascript" src="jquery-1.3.1.js"></script>
+<script type="text/javascript" src="effects.core.js"></script>
+<!-- 時間切れによる画面演出 -->
+<script type="text/javascript" src="effects.explode.js"></script>
+<!-- 画面点滅 -->
+<script type="text/javascript" src="effects.pulsate.js"></script>
+
 
 <script type="text/javascript" src="GET.js"></script>
 
@@ -228,94 +230,97 @@
 <body>
 
 	<div id="wrap">
+		<div id="wrapping">
 
-		<div id="timer">
-			<form name="timer">
-				<div id="progress"></div>
+			<div id="timer">
+				<form name="timer">
+					<div id="progress"></div>
 
-				<input id="min" class="timerForm" type="number" value="">分 <input
-					id="sec" class="timerForm" type="number" value="">秒<br>
+					<input id="min" class="timerForm" type="number" value="">分
+					<input id="sec" class="timerForm" type="number" value="">秒<br>
 
-				<input id="start" type="button" value="スタート" onclick="Start()">
-				<input type="button" value="ストップ" onclick="Stop()"> <input
-					id="reset" type="reset" value="リセット"> <input
-					id="effect_toggle" type="button" value="エフェクト"
-					onclick="EffectBtn()" disabled="disabled">
-			</form>
-		</div>
+					<input id="start" type="button" value="スタート" onclick="Start()">
+					<input type="button" value="ストップ" onclick="Stop()"> <input
+						id="reset" type="reset" value="リセット"> <input
+						id="effect_toggle" type="button" value="エフェクト"
+						onclick="EffectBtn()" disabled="disabled">
+				</form>
+			</div>
 
-		<div id="main">
+			<div id="main">
 
-			<div id="main_img">
-				<div id="inner_main_img">
+				<div id="main_img">
+					<div id="inner_main_img">
 
-					<div id="img1" class="img"></div>
-					<div id="img2" class="img"></div>
-					<div id="img3" class="img"></div>
-					<div id="img4" class="img"></div>
-					<div id="img5" class="img"></div>
-					<div id="img6" class="img"></div>
-					<div id="img7" class="img"></div>
-					<div id="img8" class="img"></div>
-					<div id="img9" class="img"></div>
-					<div id="img10" class="img"></div>
-					<div id="img11" class="img"></div>
-					<div id="img12" class="img"></div>
+						<div id="img1" class="img"></div>
+						<div id="img2" class="img"></div>
+						<div id="img3" class="img"></div>
+						<div id="img4" class="img"></div>
+						<div id="img5" class="img"></div>
+						<div id="img6" class="img"></div>
+						<div id="img7" class="img"></div>
+						<div id="img8" class="img"></div>
+						<div id="img9" class="img"></div>
+						<div id="img10" class="img"></div>
+						<div id="img11" class="img"></div>
+						<div id="img12" class="img"></div>
 
+					</div>
 				</div>
+
+				<div id="search">
+					<input type="text" value="" id="search_word" size="35"> <input
+						type="button" value="検索" ONCLICK="drawimg()" id="search_button">
+				</div>
+
+				<div id="page_btn">
+					<input type="submit" name="btn1" value="ページ"
+						style="width: 50px; height: 24px;"> <input type="submit"
+						name="btn2" value="切り替え" style="width: 50px; height: 24px;">
+					<input type="submit" name="btn3" value="ボタンの"
+						style="width: 50px; height: 24px;"> <input type="submit"
+						name="btn4" value="予定" style="width: 50px; height: 24px;">
+				</div>
+
 			</div>
 
-			<div id="search">
-				<input type="text" value="" id="search_word" size="35"> <input
-					type="button" value="検索" ONCLICK="drawimg()" id="search_button">
+
+
+			<div id="setting">
+				<p>設定</p>
+				<br>
+				<form method="POST" action="" 　name="setting_1">
+					<p>音</p>
+					<input type="radio" name="sound" value="ON" checked> ON <input
+						type="radio" name="sound" value="OFF"> OFF
+
+					<p>セーフサーチ</p>
+					<input type="radio" name="S-search" value="ON" checked> ON
+					<input type="radio" name="S-search" value="OFF"> OFF
+
+
+				</form>
 			</div>
 
-			<div id="page_btn">
-				<input type="submit" name="btn1" value="ページ"
-					style="width: 50px; height: 24px;"> <input type="submit"
-					name="btn2" value="切り替え" style="width: 50px; height: 24px;">
-				<input type="submit" name="btn3" value="ボタンの"
-					style="width: 50px; height: 24px;"> <input type="submit"
-					name="btn4" value="予定" style="width: 50px; height: 24px;">
+			<div id="word">
+				<p>単語予約</p>
+				<form method="POST" action="" 　name="form1"
+					onSubmit="return check()">
+					<input name="word" type="text" size="28" maxlength="16"> <input
+						type="submit" value="追加">
+
+				</form>
+			</div>
+
+			<div id="user-Act">
+				<p>閲覧者アクション</p>
+			</div>
+
+			<div id="hyouka">
+				<p>評価</p>
 			</div>
 
 		</div>
-
-
-
-		<div id="setting">
-			<p>設定</p>
-			<br>
-			<form method="POST" action="" 　name="setting_1">
-				<p>音</p>
-				<input type="radio" name="sound" value="ON" checked> ON <input
-					type="radio" name="sound" value="OFF"> OFF
-
-				<p>セーフサーチ</p>
-				<input type="radio" name="S-search" value="ON" checked> ON <input
-					type="radio" name="S-search" value="OFF"> OFF
-
-
-			</form>
-		</div>
-
-		<div id="word">
-			<p>単語予約</p>
-			<form method="POST" action="" 　name="form1" onSubmit="return check()">
-				<input name="word" type="text" size="28" maxlength="16"> <input
-					type="submit" value="追加">
-
-			</form>
-		</div>
-
-		<div id="user-Act">
-			<p>閲覧者アクション</p>
-		</div>
-
-		<div id="hyouka">
-			<p>評価</p>
-		</div>
-
 	</div>
 
 
