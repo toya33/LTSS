@@ -61,7 +61,7 @@ alert.onload = function() {};
 var progress_max = 0; // プログレスバーの最大値を格納
 // プログレスバー初期表示の設定
 var p = {
-		width : 800,
+		width : 976,
 };
 var o = null;
 window.onload = function() {
@@ -112,7 +112,7 @@ function Stop() {
 	document.getElementById("min").readOnly = false;
 	document.getElementById("sec").readOnly = false;
 	var p = {
-		width : 800,
+		width : 976,
 	};
 	o = new html5jp.progress("progress", p);
 	o.reset();
@@ -140,7 +140,7 @@ function TMWrite(int) {
 		to : to,
 		full : progress_max,
 		animation : 0,
-		width : 800,
+		width : 976,
 		nd : 1
 	};
 	o = new html5jp.progress("progress", p);
@@ -150,7 +150,7 @@ function TMWrite(int) {
 		// 終了時間になった時の処理
 		finish.play();
 		// 時間切れのためexplodeにより画面粉砕
-		$("> :eq(0)", document.getElementById("countdown")).toggle("explode");
+		$("> :eq(0)", document.getElementById("wrap")).toggle("explode");
 
 		document.getElementById("min").value = "";
 		document.getElementById("sec").value = "";
@@ -160,7 +160,7 @@ function TMWrite(int) {
 		if (int <= 60) {
 			// 1分前になった時の処理
 			if ((int % 2 == 0) && flg_pulsate.flg){
-				$("#countdown").effect("pulsate");
+				$("#wrap").effect("pulsate");
 				alert.play();				
 			}
 			document.getElementById("effect_toggle").disabled = false;

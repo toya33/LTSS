@@ -7,7 +7,19 @@
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript" src="more_serach02.js"></script>
 
-<script src="CountDown.js"></script>
+<!-- カウントダウン/音声・画面演出 -->
+	<script type="text/javascript" src="CountDown.js"></script>
+	<!-- プログレスバー -->
+	<script type="text/javascript" src="progress.js"></script>
+	<!-- 画面演出に使用 -->
+	<script type="text/javascript" src="jquery-1.3.1.js"></script>
+	<script type="text/javascript" src="effects.core.js"></script>
+	<!-- 時間切れによる画面演出 -->
+	<script type="text/javascript" src="effects.explode.js"></script>
+	<!-- 画面点滅 -->
+	<script type="text/javascript" src="effects.pulsate.js"></script>
+<!-- カウントダウン/音声・画面演出 -->
+
 <script type="text/javascript" src="GET.js"></script>
 
 <script>
@@ -98,6 +110,10 @@ float:left;
 margin-top:5px;
 margin-left:10px;
 border:1px solid #000;
+}
+
+.timerForm {		/* 時間入力用テキスト */
+text-align: right;
 }
 
 #setting {			/* 設定 */
@@ -218,8 +234,19 @@ left: 530px;
 <div id="wrap">
 
 <div id="timer">
-<p>カウントダウンタイマー</p>
+	<form name="timer">
+		<div id="progress"></div>
+	
+		<input id="min" class="timerForm" type="number" value="">分
+		<input id="sec" class="timerForm" type="number" value="">秒<br>
 
+		<input id="start" type="button" value="スタート" onclick="Start()">
+		<input type="button" value="ストップ" onclick="Stop()">
+		<input id="reset" type="reset" value="リセット">
+
+		
+		<input id="effect_toggle" type="button" value="エフェクト" onclick="EffectBtn()" disabled="disabled">
+	</form>
 </div>
 
 <div id="main">
