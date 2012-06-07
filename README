@@ -2,7 +2,7 @@
 
 
 ファイルの消去―――――――――――――
-| git rm ファイル名       |
+| git rm ファイル名      |
 | git add ./	        |
 | git commit -m "horie" |
 | git push origin master|
