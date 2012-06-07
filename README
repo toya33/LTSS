@@ -1,4 +1,12 @@
-※LTSSはエスコンの特殊兵装ではありませんwww
+﻿※LTSSはエスコンの特殊兵装ではありませんwww
+
+
+ファイルの消去―――――-
+| git rm ファイル名     |
+| git add ./	        |
+| git commit -m "horie" |
+| git push origin master|
+ ――――――――――――
 
 
 ライトニングトーク支援システム開発案件
