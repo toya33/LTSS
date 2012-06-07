@@ -1,9 +1,9 @@
 ﻿※LTSSはエスコンの特殊兵装ではありませんwww
 
 
-ファイルの消去―――――――――――
-| git rm ファイル名     |
-| git add ./	           |
+ファイルの消去――――――――――――
+| git rm ファイル名      |
+| git add ./	        |
 | git commit -m "horie" |
 | git push origin master|
  ――――――――――――――――――――――――
