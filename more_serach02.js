@@ -1,21 +1,65 @@
 ﻿  var no   = 0;
   var imgresults = new Array();
+  var page=0;
   
   function OnLoad()
   {
   
+      var searchControl = new google.search.SearchControl();
+	  
       var imageSearch = new google.search.ImageSearch();
+	  
+	  searchControl.addSearcher(imageSearch);
+	  
+	  var drawOptions = new google.search.DrawOptions();
+      drawOptions.setSearchFormRoot(document.getElementById("search"));
+      searchControl.draw(document.getElementById("search_control"), drawOptions);
 	
-		imageSearch.setResultSetSize();
       // 検索完了時に呼び出されるコールバック関数を登録する　　　　　　　　この部分が検索結果？↓　　
       imageSearch.setSearchCompleteCallback( this, SearchComplete, [ imageSearch ] );
 	  
       // 検索を実行する
       imageSearch.execute( 'sky' );
+	  
   }
 
+   function drawing(imgid){
+  
+       var image;
+	   var id = imgid;
+	   no = 0;
+	   for(var i = 0 ; i < 12 ; i++){
+	   image = document.getElementById('image'+(i+1));
+    // サムネイル画像のURL
+		if(imgresults[id] !== null){
+	   image.src = imgresults[id++][2];
+	   console.log("image id:"+id);
+	   }
+	   }
+	   console.log("page no:"+page);
+  }
+  
+  function before(){
+		if(page > 0){
+			page--;
+			drawing(page*12);
+		}else{
+			drawing(0);
+		}
+  }
+  
+  function next(){
+		if(page < imgresults.length/3){
+			page++;
+			drawing(page*12);
+		}else{
+			page--;
+		}
+  }
+  
   function SearchComplete( searcher )
   {
+	  
       // 結果オブジェクトを取得する
       var results = searcher.results;
 	  
@@ -24,7 +68,8 @@
           // 情報を取得する
           for( var i = 0; i < results.length; i++ )
           {	  
-			  imgresults[no++]=[results[i].title,results[i].Url,results[i].tbUrl];  
+			  if(results[i] !== null)
+				imgresults[no++]=[results[i].title,results[i].Url,results[i].tbUrl];  
 			} 
        }
 	   
@@ -41,18 +86,5 @@
     }
   }
 
-
-  function drawimg(){
-  
-       var content;
-	   
-	   for(var i = 0 ; i < no ; i++){
-	   content= document.getElementById( 'img'+(i+1) );
-    // サムネイル画像のURL
-       var image = document.createElement( 'img' );
-       image.src = imgresults[i][2];
-	   content.appendChild( image );
-	   }
-  }
   google.load( 'search', '1' );
   google.setOnLoadCallback( OnLoad );
