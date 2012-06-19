@@ -57,8 +57,29 @@
 	list-style: none;
 }
 
+<<<<<<< HEAD
 body {
 background:url(Image/so_039.jpg);
+=======
+/* ヘッダー・フッターの挙動→http://designshack.net/articles/css/5-cool-css-hover-effects-you-can-copy-and-paste */
+header {
+	width: 100%;
+	height: 10px;
+	line-height: 0px;
+	color: transparent;
+	font-size: 50px;
+	font-weight: 300;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	position: absolute;
+}
+
+header:hover {
+	line-height: 133px;
+	color: black;
+	z-index: 1;
+>>>>>>> 0c735ccc25305d92842b23bdfd0904977728c374
 }
 
 .hover {
@@ -67,8 +88,13 @@ background:url(Image/so_039.jpg);
 
 footer {
 	width: 100%;
+<<<<<<< HEAD
 	height: 30px;
 	line-height: 0px;
+=======
+	height: 60px;
+	line-height: 60px;
+>>>>>>> 0c735ccc25305d92842b23bdfd0904977728c374
 	color: transparent;
 	font-size: 30px;
 	font-weight: 300;
@@ -186,6 +212,23 @@ footer:hover {
 	height: 150px;
 	position: absolute;
 }
+
+/* 画像がおっきくなる～→http://designshack.net/articles/css/5-cool-css-hover-effects-you-can-copy-and-paste */
+#inner_main_img img {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    z-index: 0;
+}
+
+#inner_main_img img:hover {
+	height: 170px;
+	width: 170px;
+	margin-top: -10px;
+	margin-left: -10px;
+	z-index: 1;
+}
+
 
 #img1 {
 	top: 10px;
