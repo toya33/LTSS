@@ -56,6 +56,7 @@
 	list-style: none;
 }
 
+/* ヘッダー・フッターの挙動→http://designshack.net/articles/css/5-cool-css-hover-effects-you-can-copy-and-paste */
 header {
 	width: 100%;
 	height: 10px;
@@ -200,6 +201,23 @@ footer:hover {
 	height: 150px;
 	position: absolute;
 }
+
+/* 画像がおっきくなる～→http://designshack.net/articles/css/5-cool-css-hover-effects-you-can-copy-and-paste */
+#inner_main_img img {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    z-index: 0;
+}
+
+#inner_main_img img:hover {
+	height: 170px;
+	width: 170px;
+	margin-top: -10px;
+	margin-left: -10px;
+	z-index: 1;
+}
+
 
 #img1 {
 	top: 10px;
