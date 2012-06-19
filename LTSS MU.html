@@ -49,6 +49,7 @@
 	});
 </script>
 
+
 <style>
 * {
 	margin: 0;
@@ -56,23 +57,8 @@
 	list-style: none;
 }
 
-header {
-	width: 1000px;
-	height: 10px;
-	line-height: 0px;
-	color: transparent;
-	font-size: 50px;
-	font-weight: 300;
-	-webkit-transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-	-o-transition: all 0.5s ease;
-	position: absolute;
-}
-
-header:hover {
-	line-height: 133px;
-	color: black;
-	z-index: 1;
+body {
+background:url(Image/so_039.jpg);
 }
 
 .hover {
@@ -80,12 +66,13 @@ header:hover {
 }
 
 footer {
-	width: 1000px;
-	height: 60px;
-	line-height: 60px;
+	width: 100%;
+	height: 30px;
+	line-height: 0px;
 	color: transparent;
-	font-size: 50px;
+	font-size: 30px;
 	font-weight: 300;
+	margin-top: 10px;
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
@@ -93,7 +80,7 @@ footer {
 }
 
 footer:hover {
-	line-height: 35px;
+	line-height: 0px;
 	color: black;
 	z-index: 1;
 }
@@ -101,32 +88,31 @@ footer:hover {
 #wrap { /* 全体の外枠 */
 	width: 1000px;
 	height: 700px;
-	border: 1px solid #000;
 	margin: auto;
+	opacity:0.9;
 }
 
-#main {
+#main {	/* 画像検索の全体*/
 	width: 700px;
 	height: 530px;
 	float: right;
 	margin-top: 10px;
 	margin-right: 10px;
-	border: 1px solid #000;
+	background-color:#FFFFFF;
 }
 
 #main_img { /* 検索した画像を表示 */
 	width: 700px;
 	height: 500px;
-	border: 1px solid #000;
 }
 
 #page_btn {
 	width: 240px;
 	height: 30px;
 	float: left;
-	margin-top: 4px;
+	margin-top: auto;
 	margin-left: 20px;
-	background-color: #0FF;
+	margin-bottom:auto;
 }
 
 #search {
@@ -143,8 +129,7 @@ footer:hover {
 	float: left;
 	margin-top: 5px;
 	margin-left: 10px;
-	border: 1px solid #000;
-	position: relative;
+	background-color:#FFFFFF;
 }
 
 .timerForm { /* 時間入力用テキスト */
@@ -157,34 +142,34 @@ footer:hover {
 	float: left;
 	margin-top: 10px;
 	margin-left: 10px;
-	border: 1px solid #000;
+	background-color:#FFFFFF;
 }
 
 #word {
 	width: 260px;
-	height: 280px;
+	height: 300px;
 	float: left;
 	margin-top: 10px;
 	margin-left: 10px;
-	border: 1px solid #000;
+	background-color:#FFFFFF;
 }
 
 #user-Act {
 	width: 340px;
-	height: 65px;
+	height: 70px;
 	float: left;
 	margin-top: 10px;
-	margin-left: 15px;
-	border: 1px solid #000;
+	margin-left: 20px;
+	background-color:#FFFFFF;
 }
 
 #hyouka {
 	width: 340px;
-	height: 65px;
+	height: 70px;
 	float: left;
 	margin-top: 10px;
-	margin-left: 15px;
-	border: 1px solid #000;
+	margin-left: 20px;
+	background-color:#FFFFFF;
 }
 
 /* 追加　*/
@@ -193,6 +178,7 @@ footer:hover {
 	height: 500px;
 	float: right;
 	position: relative;
+	background-color:#FFFFFF;
 }
 
 .img {
@@ -268,107 +254,107 @@ footer:hover {
 </head>
 
 <body>
-	<header>
-		<div class="hover">aaaa</div>
-	</header>
 
+	<!--全体のdiv-->
 	<div id="wrap">
-		<div id="wrapping">
+    
+    	<!--タイマーのdiv-->
+		<div id="timer">
+			<form name="timer">
+            
+            	<!--スタートボタンとかいろいろ入ってるdiv-->
+				<div id="progress"></div>
+                
+				<input id="min" class="timerForm" type="number" value="">分 
+                <input id="sec" class="timerForm" type="number" value="">秒<br>
+				<input id="start" type="button" value="スタート" onclick="Start()">
+				<input type="button" value="ストップ" onclick="Stop()"> 
+                <input id="reset" type="reset" value="リセット"> 
+                <input id="effect_toggle" type="button" value="エフェクト" onclick="EffectBtn()" disabled="disabled">
+			</form>
+		</div>
+        
+        <!--画像検索全体のdiv-->
+		<div id="main">
+        
+        	<!--画像表示するdiv-->
+			<div id="main_img">
+            
+            	<!--画像を分割して12個表示する-->
+				<div id="inner_main_img">
 
+					<div id="img1" class="img"></div>
+					<div id="img2" class="img"></div>
+					<div id="img3" class="img"></div>
+					<div id="img4" class="img"></div>
+					<div id="img5" class="img"></div>
+					<div id="img6" class="img"></div>
+					<div id="img7" class="img"></div>
+					<div id="img8" class="img"></div>
+					<div id="img9" class="img"></div>
+					<div id="img10" class="img"></div>
+					<div id="img11" class="img"></div>
+					<div id="img12" class="img"></div>
 
-			<div id="timer">
-				<form name="timer">
-					<div id="progress"></div>
-
-					<input id="min" class="timerForm" type="number" value="">分
-					<input id="sec" class="timerForm" type="number" value="">秒<br>
-
-					<input id="start" type="button" value="スタート" onclick="Start()">
-					<input type="button" value="ストップ" onclick="Stop()"> <input
-						id="reset" type="reset" value="リセット"> <input
-						id="effect_toggle" type="button" value="エフェクト"
-						onclick="EffectBtn()" disabled="disabled">
-				</form>
-			</div>
-
-			<div id="main">
-
-				<div id="main_img">
-					<div id="inner_main_img">
-
-						<div id="img1" class="img"><img id="image1" class="img" src=""></div>
-						<div id="img2" class="img"><img id="image2" class="img" src=""></div>
-						<div id="img3" class="img"><img id="image3" class="img" src=""></div>
-						<div id="img4" class="img"><img id="image4" class="img" src=""></div>
-						<div id="img5" class="img"><img id="image5" class="img" src=""></div>
-						<div id="img6" class="img"><img id="image6" class="img" src=""></div>
-						<div id="img7" class="img"><img id="image7" class="img" src=""></div>
-						<div id="img8" class="img"><img id="image8" class="img" src=""></div>
-						<div id="img9" class="img"><img id="image9" class="img" src=""></div>
-						<div id="img10" class="img"><img id="image10" class="img" src=""></div>
-						<div id="img11" class="img"><img id="image11" class="img" src=""></div>
-						<div id="img12" class="img"><img id="image12" class="img" src=""></div>
-
-					</div>
 				</div>
-
-				<div id="search">
-					<!--<input type="text" value="" id="search_word" size="35"> <input
-						type="button" value="検索" ONCLICK="drawimg()" id="search_button">-->
-				</div>
-
-				<div id="page_btn">
-					<input type="submit" style="width: 50px; height: 24px;" ONCLICK="before()" > 
-					<input type="submit" style="width: 50px; height: 24px;" ONCLICK="next()">
-					<input type="submit" name="btn3" value="ボタンの"
-						style="width: 50px; height: 24px;"> <input type="submit"
-						name="btn4" value="予定" style="width: 50px; height: 24px;">
-				</div>
-
 			</div>
-
-
-
-			<div id="setting">
-				<p>設定</p>
-				<br>
-				<form method="POST" action="" 　name="setting_1">
-					<p>音</p>
-					<input type="radio" name="sound" value="ON" checked> ON <input
-						type="radio" name="sound" value="OFF"> OFF
-
-					<p>セーフサーチ</p>
-					<input type="radio" name="S-search" value="ON" checked> ON
-					<input type="radio" name="S-search" value="OFF"> OFF
-
-
-				</form>
+            
+            <!--画像を検索するdiv-->
+			<div id="search">
+				<input type="text" value="" id="search_word" size="35"> 
+                <input type="button" value="検索" ONCLICK="drawimg()" id="search_button">
 			</div>
-
-			<div id="word">
-				<p>単語予約</p>
-				<form method="POST" action="" 　name="form1"
-					onSubmit="return check()">
-					<input name="word" type="text" size="28" maxlength="16"> <input
-						type="submit" value="追加">
-
-				</form>
-			</div>
-
-			<div id="user-Act">
-				<p>閲覧者アクション</p>
-			</div>
-
-			<div id="hyouka">
-				<p>評価</p>
+            
+            <!--ページを切り替えるボタンを置いているdiv-->
+			<div id="page_btn">
+				<input type="submit" name="btn1" value="ページ" style="width: 50px; height: 24px;"> 
+                <input type="submit" name="btn2" value="切り替え" style="width: 50px; height: 24px;">
+				<input type="submit" name="btn3" value="ボタンの" style="width: 50px; height: 24px;"> 
+                <input type="submit" name="btn4" value="予定" style="width: 50px; height: 24px;">
 			</div>
 
 		</div>
-	</div>
+        
+        <!--設定のdiv-->
+		<div id="setting">
+			<p>設定</p>
+			<br>
+			<form method="POST" action="" 　name="setting_1">
+				<p>音</p>
+				<input type="radio" name="sound" value="ON" checked> ON 
+                <input type="radio" name="sound" value="OFF"> OFF
 
-	<footer>
+				<p>セーフサーチ</p>
+				<input type="radio" name="S-search" value="ON" checked> ON 
+                <input type="radio" name="S-search" value="OFF"> OFF
+			</form>
+		</div>
+        
+        <!--チャットのdiv-->
+		<div id="word">
+			<p>単語予約</p>
+			<form method="POST" action="" 　name="form1" onSubmit="return check()">
+				<input name="word" type="text" size="28" maxlength="16"> 
+                <input type="submit" value="追加">
+			</form>
+		</div>
+        
+        <!--閲覧者アクションdiv-->
+		<div id="user-Act">
+			<p>閲覧者アクション</p>
+		</div>
+        
+        <!--評価するdiv-->
+		<div id="hyouka">
+			<p>評価</p>
+		</div>
+
+	</div>
+    
+    <footer>
 		<div class="hover">copy lightning</div>
 	</footer>
-
+    
 </body>
+
 </html>
