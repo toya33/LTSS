@@ -173,6 +173,7 @@ function TMWrite(int) {
 			// 1分前になった時の処理
 			if (int <= 1){
 				// 1秒前になったら音声&エフェクト停止
+				alert.pause();
 			}else if ((int % 2 == 0) && flg_pulsate.flg){
 				// 2秒ごとに実行
 				$("#wrap").effect("pulsate");
