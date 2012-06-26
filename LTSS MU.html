@@ -58,7 +58,7 @@
 }
 
 body {
-background:url(Image/so_039.jpg);
+	background: url(Image/so_039.jpg);
 }
 
 /* ヘッダー・フッターの挙動→http://designshack.net/articles/css/5-cool-css-hover-effects-you-can-copy-and-paste */
@@ -88,16 +88,16 @@ footer:hover {
 	width: 1000px;
 	height: 700px;
 	margin: auto;
-	opacity:0.9;
+	opacity: 0.9;
 }
 
-#main {	/* 画像検索の全体*/
+#main { /* 画像検索の全体*/
 	width: 700px;
 	height: 530px;
 	float: right;
 	margin-top: 10px;
 	margin-right: 10px;
-	background-color:#FFFFFF;
+	background-color: #FFFFFF;
 }
 
 #main_img { /* 検索した画像を表示 */
@@ -111,7 +111,7 @@ footer:hover {
 	float: left;
 	margin-top: auto;
 	margin-left: 20px;
-	margin-bottom:auto;
+	margin-bottom: auto;
 }
 
 #search {
@@ -128,7 +128,7 @@ footer:hover {
 	float: left;
 	margin-top: 5px;
 	margin-left: 10px;
-	background-color:#FFFFFF;
+	background-color: #FFFFFF;
 }
 
 .timerForm { /* 時間入力用テキスト */
@@ -141,7 +141,7 @@ footer:hover {
 	float: left;
 	margin-top: 10px;
 	margin-left: 10px;
-	background-color:#FFFFFF;
+	background-color: #FFFFFF;
 }
 
 #word {
@@ -150,7 +150,7 @@ footer:hover {
 	float: left;
 	margin-top: 10px;
 	margin-left: 10px;
-	background-color:#FFFFFF;
+	background-color: #FFFFFF;
 }
 
 #user-Act {
@@ -159,7 +159,7 @@ footer:hover {
 	float: left;
 	margin-top: 10px;
 	margin-left: 20px;
-	background-color:#FFFFFF;
+	background-color: #FFFFFF;
 }
 
 #hyouka {
@@ -168,7 +168,7 @@ footer:hover {
 	float: left;
 	margin-top: 10px;
 	margin-left: 20px;
-	background-color:#FFFFFF;
+	background-color: #FFFFFF;
 }
 
 /* 追加　*/
@@ -177,7 +177,7 @@ footer:hover {
 	height: 500px;
 	float: right;
 	position: relative;
-	background-color:#FFFFFF;
+	background-color: #FFFFFF;
 }
 
 .img {
@@ -188,10 +188,10 @@ footer:hover {
 
 /* 画像がおっきくなる～→http://designshack.net/articles/css/5-cool-css-hover-effects-you-can-copy-and-paste */
 #inner_main_img img {
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    z-index: 0;
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	z-index: 0;
 }
 
 #inner_main_img img:hover {
@@ -201,7 +201,6 @@ footer:hover {
 	margin-left: -10px;
 	z-index: 1;
 }
-
 
 #img1 {
 	top: 10px;
@@ -273,104 +272,111 @@ footer:hover {
 
 	<!--全体のdiv-->
 	<div id="wrap">
-    
-    	<!--タイマーのdiv-->
-		<div id="timer">
-			<form name="timer">
-            
-            	<!--スタートボタンとかいろいろ入ってるdiv-->
-				<div id="progress"></div>
-                
-				<input id="min" class="timerForm" type="number" value="">分 
-                <input id="sec" class="timerForm" type="number" value="">秒<br>
-				<input id="start" type="button" value="スタート" onclick="Start()">
-				<input type="button" value="ストップ" onclick="Stop()"> 
-                <input id="reset" type="reset" value="リセット"> 
-                <input id="effect_toggle" type="button" value="エフェクト" onclick="EffectBtn()" disabled="disabled">
-			</form>
-		</div>
-        
-        <!--画像検索全体のdiv-->
-		<div id="main">
-        
-        	<!--画像表示するdiv-->
-			<div id="main_img">
-            
-            	<!--画像を分割して12個表示する-->
-				<div id="inner_main_img">
 
-					<div id="img1" class="img"></div>
-					<div id="img2" class="img"></div>
-					<div id="img3" class="img"></div>
-					<div id="img4" class="img"></div>
-					<div id="img5" class="img"></div>
-					<div id="img6" class="img"></div>
-					<div id="img7" class="img"></div>
-					<div id="img8" class="img"></div>
-					<div id="img9" class="img"></div>
-					<div id="img10" class="img"></div>
-					<div id="img11" class="img"></div>
-					<div id="img12" class="img"></div>
+		<!-- 画面粉砕に必要なDIV　一見無意味に見えるけど、消しちゃダメよん♪ -->
+		<div id="kesanaide---">
 
+			<!--タイマーのdiv-->
+			<div id="timer">
+				<form name="timer">
+
+					<!--スタートボタンとかいろいろ入ってるdiv ←　ごめんhtml上では空のdivだ!　JavaScriptでプログレスバーを表示している!-->
+					<div id="progress"></div>
+
+					<input id="min" class="timerForm" type="number" value="">分
+					<input id="sec" class="timerForm" type="number" value="">秒<br>
+					<input id="start" type="button" value="スタート" onclick="Start()">
+					<input type="button" value="ストップ" onclick="Stop()"> <input
+						id="reset" type="reset" value="リセット" onclick="ResetBtn()">
+					<input id="effect_toggle" type="button" value="エフェクト"
+						onclick="EffectBtn()" disabled="disabled">
+				</form>
+			</div>
+
+			<!--画像検索全体のdiv-->
+			<div id="main">
+
+				<!--画像表示するdiv-->
+				<div id="main_img">
+
+					<!--画像を分割して12個表示する-->
+					<div id="inner_main_img">
+
+						<div id="img1" class="img"></div>
+						<div id="img2" class="img"></div>
+						<div id="img3" class="img"></div>
+						<div id="img4" class="img"></div>
+						<div id="img5" class="img"></div>
+						<div id="img6" class="img"></div>
+						<div id="img7" class="img"></div>
+						<div id="img8" class="img"></div>
+						<div id="img9" class="img"></div>
+						<div id="img10" class="img"></div>
+						<div id="img11" class="img"></div>
+						<div id="img12" class="img"></div>
+
+					</div>
 				</div>
-			</div>
-            
-            <!--画像を検索するdiv-->
-			<div id="search">
-				<input type="text" value="" id="search_word" size="35"> 
-                <input type="button" value="検索" ONCLICK="drawimg()" id="search_button">
-			</div>
-            
-            <!--ページを切り替えるボタンを置いているdiv-->
-			<div id="page_btn">
-				<input type="submit" name="btn1" value="ページ" style="width: 50px; height: 24px;"> 
-                <input type="submit" name="btn2" value="切り替え" style="width: 50px; height: 24px;">
-				<input type="submit" name="btn3" value="ボタンの" style="width: 50px; height: 24px;"> 
-                <input type="submit" name="btn4" value="予定" style="width: 50px; height: 24px;">
+
+				<!--画像を検索するdiv-->
+				<div id="search">
+					<input type="text" value="" id="search_word" size="35"> <input
+						type="button" value="検索" ONCLICK="drawimg()" id="search_button">
+				</div>
+
+				<!--ページを切り替えるボタンを置いているdiv-->
+				<div id="page_btn">
+					<input type="submit" name="btn1" value="ページ"
+						style="width: 50px; height: 24px;"> <input type="submit"
+						name="btn2" value="切り替え" style="width: 50px; height: 24px;">
+					<input type="submit" name="btn3" value="ボタンの"
+						style="width: 50px; height: 24px;"> <input type="submit"
+						name="btn4" value="予定" style="width: 50px; height: 24px;">
+				</div>
+
 			</div>
 
-		</div>
-        
-        <!--設定のdiv-->
-		<div id="setting">
-			<p>設定</p>
-			<br>
-			<form method="POST" action="" 　name="setting_1">
-				<p>音</p>
-				<input type="radio" name="sound" value="ON" checked> ON 
-                <input type="radio" name="sound" value="OFF"> OFF
+			<!--設定のdiv-->
+			<div id="setting">
+				<p>設定</p>
+				<br>
+				<form method="POST" action="" 　name="setting_1">
+					<p>音</p>
+					<input type="radio" name="sound" value="ON" checked> ON <input
+						type="radio" name="sound" value="OFF"> OFF
 
-				<p>セーフサーチ</p>
-				<input type="radio" name="S-search" value="ON" checked> ON 
-                <input type="radio" name="S-search" value="OFF"> OFF
-			</form>
-		</div>
-        
-        <!--チャットのdiv-->
-		<div id="word">
-			<p>単語予約</p>
-			<form method="POST" action="" 　name="form1" onSubmit="return check()">
-				<input name="word" type="text" size="28" maxlength="16"> 
-                <input type="submit" value="追加">
-			</form>
-		</div>
-        
-        <!--閲覧者アクションdiv-->
-		<div id="user-Act">
-			<p>閲覧者アクション</p>
-		</div>
-        
-        <!--評価するdiv-->
-		<div id="hyouka">
-			<p>評価</p>
-		</div>
+					<p>セーフサーチ</p>
+					<input type="radio" name="S-search" value="ON" checked> ON
+					<input type="radio" name="S-search" value="OFF"> OFF
+				</form>
+			</div>
 
+			<!--チャットのdiv-->
+			<div id="word">
+				<p>単語予約</p>
+				<form method="POST" action="" 　name="form1"
+					onSubmit="return check()">
+					<input name="word" type="text" size="28" maxlength="16"> <input
+						type="submit" value="追加">
+				</form>
+			</div>
+
+			<!--閲覧者アクションdiv-->
+			<div id="user-Act">
+				<p>閲覧者アクション</p>
+			</div>
+
+			<!--評価するdiv-->
+			<div id="hyouka">
+				<p>評価</p>
+			</div>
+		</div>
 	</div>
-    
-    <footer>
+
+	<footer>
 		<div class="hover">copy lightning</div>
 	</footer>
-    
+
 </body>
 
 </html>
