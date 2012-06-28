@@ -23,7 +23,7 @@ $.effects.pulsate = function(o) {
 
 		// Set options
 		var mode = $.effects.setMode(el, o.options.mode || 'show'); // Set Mode
-		var times = o.options.times || 5; // Default # of times
+		var times = o.options.times || 3.1; // Default # of times
 		var duration = o.duration ? o.duration / 2 : $.fx.speeds._default / 2;
 
 		// Adjust
@@ -31,13 +31,13 @@ $.effects.pulsate = function(o) {
 		if (el.is(':hidden')) { // Show fadeIn
 			el.css('opacity', 0);
 			el.show(); // Show
-			el.animate({opacity: 1}, duration, o.options.easing);
+			el.animate({opacity: 0.9}, duration, o.options.easing);
 			times = times-2;
 		}
 
 		// Animate
 		for (var i = 0; i < times; i++) { // Pulsate
-			el.animate({opacity: 0}, duration, o.options.easing).animate({opacity: 1}, duration, o.options.easing);
+			el.animate({opacity: 0}, duration, o.options.easing).animate({opacity: 0.9}, duration, o.options.easing);
 		};
 		if (mode == 'hide') { // Last Pulse
 			el.animate({opacity: 0}, duration, o.options.easing, function(){
@@ -45,7 +45,7 @@ $.effects.pulsate = function(o) {
 				if(o.callback) o.callback.apply(this, arguments); // Callback
 			});
 		} else {
-			el.animate({opacity: 0}, duration, o.options.easing).animate({opacity: 1}, duration, o.options.easing, function(){
+			el.animate({opacity: 0}, duration, o.options.easing).animate({opacity: 0.9}, duration, o.options.easing, function(){
 				if(o.callback) o.callback.apply(this, arguments); // Callback
 			});
 		};

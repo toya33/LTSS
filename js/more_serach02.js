@@ -92,6 +92,3 @@
     }
 	
   }
-
-  google.load( 'search', '1' );
-  google.setOnLoadCallback( OnLoad );

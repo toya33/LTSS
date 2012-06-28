@@ -9,7 +9,8 @@ var sec;
 
 var finish = null; // 終了時に再生する音声
 var alert = null; // 終了N分前に再生する音声
-// TODO var alert_flg = true;	 もしかすると1分前になると1秒ごとに最初から再生されるかもなので、判定いる？
+// var SeStartBtn = null;
+// var SeResetBtn = null;
 
 // 画面点滅のon/off
 flg_pulsate = {
@@ -32,13 +33,18 @@ try {
 		var canPlayMp3 = ("" != audio.canPlayType("audio/mpeg"));
 		if (canPlayOgg) {
 			// oggをサポートしている
-			finish = new Audio("*.ogg"); // TODO
-			alert = new Audio("*.ogg"); // TODO
+			// finish = new Audio("se/tokigakita_01.ogg");
+			finish = new Audio("se/b_035.ogg");
+			alert = new Audio("se/hato.ogg");
+			// SeStartBtn = new Audio("se/youistart_01.ogg");
+			// SeResetBtn = new Audio("se/reset_01.ogg");
 		} else if (canPlayMp3) {
 			// mp3をサポートしている
-			// audio.src = "*.mp3";
-			finish = new Audio("*.mp3"); // TODO
-			alert = new Audio("*.mp3"); // TODO
+			// finish = new Audio("se/tokigakita_01.mp3");
+			finish = new Audio("se/b_035.mp3");
+			alert = new Audio("se/hato.mp3");
+			// SeStartBtn = new Audio("se/youistart_01.mp3");
+			// SeResetBtn = new Audio("se/reset_01.mp3");
 		} else {
 			throw "oggもmp3もサポートしていません";
 		}
@@ -53,10 +59,14 @@ try {
 // 音声のロード後に自動で再生されないように設定
 finish.autoplay = false;
 alert.autoplay = false;
+// SeStartBtn.autoplay = false;
+// SeResetBtn.autoplay = false;
 
 // 音声ファイルのロード処理
 finish.onload = function() {};
 alert.onload = function() {};
+// SeStartBtn.onload = function() {};
+// SeResetBtn.onload = function() {};
 
 var progress_max = 0; // プログレスバーの最大値を格納
 // プログレスバー初期表示の設定
@@ -71,6 +81,8 @@ window.onload = function() {
 
 // カウントダウン関数を1000ミリ秒毎に呼び出す関数
 function Start() {
+	//SeStartBtn.play();
+	
 	min = document.getElementById("min").value;
 	sec = document.getElementById("sec").value;
 
@@ -159,13 +171,17 @@ function TMWrite(int) {
 	} else {
 		if (int <= 60) {
 			// 1分前になった時の処理
-			if ((int % 2 == 0) && flg_pulsate.flg){
+			if (int <= 1){
+				// 1秒前になったら音声&エフェクト停止
+				alert.pause();
+			}else if ((int % 2 == 0) && flg_pulsate.flg){
+				// 2秒ごとに実行
 				$("#wrap").effect("pulsate");
-				alert.play();				
+				alert.play();
 			}
 			document.getElementById("effect_toggle").disabled = false;
-			
 		}
+		
 		// 残り分数はintを60で割って切り捨てる
 		document.getElementById("min").value = Math.floor(int / 60);
 		// 残り秒数はintを60で割った余り
@@ -182,4 +198,9 @@ function EffectBtn() {
 		flg_pulsate.flg = true;
 		alert.play();
 	}
+}
+
+// リセットボタン
+function ResetBtn() {
+	// SeResetBtn.play();
 }
