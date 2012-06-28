@@ -1,47 +1,42 @@
 ﻿  var no   = 0;
   var imgresults = new Array();
-  var page = 0;
+  var page=0;
   
-  function OnLoad() {
+  function OnLoad()
+  {
   
-    var searchControl = new google.search.SearchControl();
+      var searchControl = new google.search.SearchControl();
 	  
-    var imageSearch = new google.search.ImageSearch();
+      var imageSearch = new google.search.ImageSearch();
 	  
-	searchControl.addSearcher(imageSearch);
+	  searchControl.addSearcher(imageSearch);
 	  
-	var drawOptions = new google.search.DrawOptions();
-    drawOptions.setSearchFormRoot(document.getElementById("search"));
-    searchControl.draw(document.getElementById("search_control"), drawOptions);
+	  var drawOptions = new google.search.DrawOptions();
+      drawOptions.setSearchFormRoot(document.getElementById("search"));
+      searchControl.draw(document.getElementById("search_control"), drawOptions);
 	
       // 検索完了時に呼び出されるコールバック関数を登録する　　　　　　　　この部分が検索結果？↓　　
-    imageSearch.setSearchCompleteCallback( this, SearchComplete, [ imageSearch ] );
-	  
+      imageSearch.setSearchCompleteCallback( this, SearchComplete, [ imageSearch ] );
 	  
       // 検索を実行する
-    imageSearch.execute( 'sky' );
+      imageSearch.execute( 'sky' );
 	  
   }
 
-  function drawing(imgid){
+   function drawing(imgid){
   
-    var image;
-	var id = imgid;
-	//var hold = new Array();
-	//hold = imgresults;
-	//imgresults = [];
-	no = 0;
-	
-	for(var i = 0; i < 12; i++){
-	  image = document.getElementById('image'+(i+1));
-      // サムネイル画像のURL
-      if(imgresults[id] !== null){
-	  image.src = imgresults[id++][2];
-	  //console.log("image id:"+id);
-	  }
-	}
-	
-	console.log("page no:"+page);
+       var image;
+	   var id = imgid;
+	   no = 0;
+	   for(var i = 0 ; i < 12 ; i++){
+	   image = document.getElementById('image'+(i+1));
+    // サムネイル画像のURL
+		if(imgresults[id] !== null){
+	   image.src = imgresults[id++][2];
+	   console.log("image id:"+id);
+	   }
+	   }
+	   console.log("page no:"+page);
   }
   
   function before(){
@@ -78,17 +73,15 @@
 			} 
        }
 	   
-	   
-	   
-	var cursor = searcher.cursor;              // cursorオブジェクト
-    var currentPage = cursor.currentPageIndex;  // 現在のページ番号
+	var current = searcher.cursor;              // cursorオブジェクト
+    var currentPage = current.currentPageIndex;  // 現在のページ番号
 
-    if( currentPage < cursor.pages.length -1)
+    if( currentPage < current.pages.length - 1 )
     {
         var nextPage = currentPage + 1;          // 次のページのページ番号
 
         // 次のページを検索する
         searcher.gotoPage( nextPage );
+		console.log(nextPage);
     }
-	
   }
