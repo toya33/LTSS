@@ -32,8 +32,8 @@
 	   image = document.getElementById('img'+(i+1));
     // サムネイル画像のURL
 		if(imgresults[id] !== null){
-	   image.src = imgresults[id++][2];
-	   console.log("image id:"+id);
+	   image.src = imgresults[id][2];
+	   image.name = imgresults[id++][1]
 	   }
 	   }
 	   console.log("page no:"+page);
