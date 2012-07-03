@@ -29,7 +29,7 @@
 	   var id = imgid;
 	   no = 0;
 	   for(var i = 0 ; i < 12 ; i++){
-	   image = document.getElementById('image'+(i+1));
+	   image = document.getElementById('img'+(i+1));
     // サムネイル画像のURL
 		if(imgresults[id] !== null){
 	   image.src = imgresults[id++][2];
@@ -69,7 +69,7 @@
           for( var i = 0; i < results.length; i++ )
           {	  
 			  if(results[i] !== null)
-				imgresults[no++]=[results[i].title,results[i].Url,results[i].tbUrl];  
+				imgresults[no++]=[results[i].title,results[i].Url,results[i].tbUrl]; 
 			} 
        }
 	   
