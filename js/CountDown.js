@@ -12,7 +12,7 @@ var alert = null; // 終了N分前に再生する音声
 // var SeStartBtn = null;
 // var SeResetBtn = null;
 
-// 画面点滅のon/off
+// 画面点滅のon(true)/off(false)
 flg_pulsate = {
 	    f: true,
 	    get flg() {
@@ -23,6 +23,16 @@ flg_pulsate = {
 	    }
 	}; 
 
+//　explodeによる画面粉砕(true)/初期状態(false)
+flg_exp = {
+	    f: false,
+	    get flg() {
+	        return this.f;
+	    },
+	    set flg(flg) {
+	        return this.f = Boolean(flg);
+	    }
+	}; 
 
 
 // ブラウザごとに、対応している音声ファイルの形式に応じて処理を変える(http://himaxoff.blog111.fc2.com/blog-entry-97.htmlから引用)
@@ -168,6 +178,7 @@ function TMWrite(int) {
 		document.getElementById("sec").value = "";
 		clearInterval(Timer1);
 
+		flg_exp.flg = true;
 	} else {
 		if (int <= 60) {
 			// 1分前になった時の処理
@@ -197,6 +208,14 @@ function EffectBtn() {
 	} else {
 		flg_pulsate.flg = true;
 		alert.play();
+	}
+}
+
+// カウントダウン終了後wrapをクリックすることで画面を戻す
+function hoReturn() {
+	if (flg_exp.flg) {
+		$("> :eq(0)", document.getElementById("wrap")).toggle("explode");
+		flg_exp.flg = false;
 	}
 }
 
