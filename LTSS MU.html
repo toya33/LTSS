@@ -21,6 +21,9 @@
 <!-- 画面点滅 -->
 <script type="text/javascript" src="js/effects.pulsate.js"></script>
 
+<!-- 画像拡大 -->
+<script type="text/javascript" src="js/jquery.fancyzoom.js"></script>
+
 <script>
 	$(function() {
 		function check() {
@@ -45,7 +48,11 @@
 			}
 
 		}
-
+	});
+	
+	$(function() {
+		$.fn.fancyzoom.defaultsOptions.imgDir='image/fancyzoom/';
+		$('.fancyzoom').fancyzoom();
 	});
 </script>
 
