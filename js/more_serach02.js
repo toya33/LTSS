@@ -1,5 +1,6 @@
 ﻿  var no   = 0; 
   var imgresults = new Array();
+  var imgsave    = new Array();
   var page=0;
   
   function OnLoad()
@@ -33,6 +34,10 @@
 	   
 	   if(flag==0){
 			no = 0;
+			imgsave = imgresults.slice(0);
+	   }else{
+			imgsave = imgresults.slice(0);
+		
 	   }
 	   
 	   for(var i = 0 ; i < 12 ; i++){
@@ -43,6 +48,8 @@
 	   image.src = imgresults[id][2];
 	   atag.href = imgresults[id++][1];
 	   console.log(atag.href);
+	   }else{
+	   image.src = "Image/no_image.png"
 	   }
 	   }
 	   console.log("page no:"+page);
@@ -58,11 +65,9 @@
   }
   
   function next(){
-		if(page < 3){
+		if(page < (imgresults.length/12)-1){
 			page++;
 			drawing(page*12,0);
-		}else{
-			page--;
 		}
   }
   
