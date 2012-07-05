@@ -88,6 +88,10 @@
         searcher.gotoPage( nextPage );
 		console.log(nextPage);
     }
+	
+	if(currentPage == 3){
+		drawing(0);
+	}
   }
 
   google.load( 'search', '1' );
