@@ -73,8 +73,11 @@
   
   function SearchComplete( searcher )
   {
-	  
-      // 結果オブジェクトを取得する
+	  setimgh(searcher);
+  }
+  
+  function setimgh(searcher){
+	// 結果オブジェクトを取得する
       var results = searcher.results;
 	  
       if( results && ( 0 < results.length ) )
