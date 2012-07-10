@@ -1,5 +1,6 @@
-﻿  var no   = 0;
+﻿  var no   = 0; 
   var imgresults = new Array();
+  var imgsave    = new Array();
   var page=0;
   
   function OnLoad()
@@ -19,24 +20,36 @@
       imageSearch.setSearchCompleteCallback( this, SearchComplete, [ imageSearch ] );
 	  
       // 検索を実行する
-      imageSearch.execute( 'sky' );
+     // imageSearch.execute( 'sky' );
 	  
   }
 
-   function drawing(imgid){
+   function drawing(imgid,flag){
   
        var image;
 	   var atag;
 	   var id = imgid;
-	   no = 0;
+	   
+	   console.log("flag:"+flag);
+	   
+	   if(flag==0){
+			no = 0;
+			imgsave = imgresults.slice(0);
+	   }else{
+			imgsave = imgresults.slice(0);
+		
+	   }
+	   
 	   for(var i = 0 ; i < 12 ; i++){
 	   atag  = document.getElementById('a'+(i+1));
 	   image = document.getElementById('img'+(i+1));
     // サムネイル画像のURL
-		if(imgresults[id] !== null){
+		if(imgresults[id]){
 	   image.src = imgresults[id][2];
 	   atag.href = imgresults[id++][1];
 	   console.log(atag.href);
+	   }else{
+	   image.src = "Image/no_image.png"
 	   }
 	   }
 	   console.log("page no:"+page);
@@ -45,18 +58,16 @@
   function before(){
 		if(page > 0){
 			page--;
-			drawing(page*12);
+			drawing(page*12,0);
 		}else{
-			drawing(0);
+			drawing(0,0);
 		}
   }
   
   function next(){
-		if(page < imgresults.length/3){
+		if(page < (imgresults.length/12)-1){
 			page++;
-			drawing(page*12);
-		}else{
-			page--;
+			drawing(page*12,0);
 		}
   }
   
@@ -90,7 +101,7 @@
     }
 	
 	if(currentPage == 3){
-		drawing(0);
+		drawing(0,1);
 	}
   }
 
