@@ -4,8 +4,6 @@ var sec;
 
 var finish = null; // 終了時に再生する音声
 var alert = null; // 終了N分前に再生する音声
-// var SeStartBtn = null;
-// var SeResetBtn = null;
 
 // 画面点滅のon(true)/off(false)
 flg_pulsate = {
@@ -38,18 +36,12 @@ try {
 		var canPlayMp3 = ("" != audio.canPlayType("audio/mpeg"));
 		if (canPlayOgg) {
 			// oggをサポートしている
-			// finish = new Audio("se/tokigakita_01.ogg");
 			finish = new Audio("se/b_035.ogg");
 			alert = new Audio("se/hato.ogg");
-			// SeStartBtn = new Audio("se/youistart_01.ogg");
-			// SeResetBtn = new Audio("se/reset_01.ogg");
 		} else if (canPlayMp3) {
 			// mp3をサポートしている
-			// finish = new Audio("se/tokigakita_01.mp3");
 			finish = new Audio("se/b_035.mp3");
 			alert = new Audio("se/hato.mp3");
-			// SeStartBtn = new Audio("se/youistart_01.mp3");
-			// SeResetBtn = new Audio("se/reset_01.mp3");
 		} else {
 			throw "oggもmp3もサポートしていません";
 		}
@@ -64,14 +56,10 @@ try {
 // 音声のロード後に自動で再生されないように設定
 finish.autoplay = false;
 alert.autoplay = false;
-// SeStartBtn.autoplay = false;
-// SeResetBtn.autoplay = false;
 
 // 音声ファイルのロード処理
 finish.onload = function() {};
 alert.onload = function() {};
-// SeStartBtn.onload = function() {};
-// SeResetBtn.onload = function() {};
 
 var progress_max = 0; // プログレスバーの最大値を格納
 // プログレスバー初期表示の設定
@@ -86,8 +74,6 @@ window.onload = function() {
 
 // カウントダウン関数を1000ミリ秒毎に呼び出す関数
 function Start() {
-	//SeStartBtn.play();
-	
 	min = document.getElementById("min").value;
 	sec = document.getElementById("sec").value;
 
@@ -212,9 +198,4 @@ function hoReturn() {
 		$("> :eq(0)", document.getElementById("wrap")).toggle("explode");
 		flg_exp.flg = false;
 	}
-}
-
-// リセットボタン
-function ResetBtn() {
-	// SeResetBtn.play();
 }
