@@ -1,5 +1,3 @@
-// http://jsajax.com/Articles/jqueryuieffectspulsate/1299‚©‚çˆø—p
-
 /*
  * jQuery UI Effects Pulsate 1.6rc6
  *

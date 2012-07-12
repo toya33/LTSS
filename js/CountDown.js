@@ -1,8 +1,3 @@
-/*
- * 全体の流れというか、カウントダウンの機能はhttp://www.pori2.net/js/timer/6.htmlをパクリました
- * プログレスバーはhttp://www.html5.jp/library/progress.html
- */
-
 var Timer1; // タイマーを格納する変数（タイマーID）
 var min;
 var sec;
@@ -35,7 +30,7 @@ flg_exp = {
 	}; 
 
 
-// ブラウザごとに、対応している音声ファイルの形式に応じて処理を変える(http://himaxoff.blog111.fc2.com/blog-entry-97.htmlから引用)
+// ブラウザごとに、対応している音声ファイルの形式に応じて処理を変える
 try {
 	audio = new Audio("");
 	if (audio.canPlayType) {

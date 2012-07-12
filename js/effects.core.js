@@ -1,6 +1,3 @@
-// http://jsajax.com/Articles/jQueryUIShowHideExplode/1305‚©‚çˆø—p
-
-
 /*
  * jQuery UI Effects 1.6rc6
  *
