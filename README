@@ -1,71 +1,64 @@
-﻿※LTSSはエスコンの特殊兵装ではありませんwww
+◆概要
+システム名：LTSS
+ライトニングトークを支援するツール
+タイマー機能と通知機能、画像検索機能を実装し、時間管理と画像検索で発表者を支援する
+webブラウザ上で動作し、対象はFirefox,Chrome上で正常に動作する
 
+◆著作権
 
-ファイルの消去――――――――――――
-| git rm ファイル名      |
-| git add ./	        |
-| git commit -m "horie" |
-| git push origin master|
- ――――――――――――――――――――――――
+Copyright © 無職のプログラミング All Rights Reserved.
+ http://himaxoff.blog111.fc2.com/blog-entry-97.html
 
+Copyright © 2007-2012 jQuery + Ajax Samples All Rights Reserved.
+ http://jsajax.com/Articles/jQueryUIShowHideExplode/1305
+ http://jsajax.com/Articles/jqueryuieffectspulsate/1299
 
-声素材は「http://www14.big.or.jp/~amiami/happy/」を使用しました…が、
-リーダーのわがままによりお蔵入りですorz
+Copyright © 2007-2011 Futomi Hatano (@futomi) All Rights Reserved.
+ http://www.html5.jp/
+ http://www.html5.jp/library/progress.html
 
+Copyright © 2012 The Apache Software Foundation All Rights Reserved.
+ http://www.apache.org/licenses/LICENSE-2.0
 
-ライトニングトーク支援システム開発案件
-リリース
-    	 	 
- 	 	
-カウントダウン計時機能
-1.任意の時間をカウントダウン表示
-★
-browser
- 
- 	 	
-終了のお知らせ機能
-1.時間になったら任意の効果音と画面演出で知らせてくれる
-+.イケてる画面演出を頼む
-★★
-browser
- 
- 	 	
-終了Ｎ分前のお知らせ機能
-1.あとＮ分になったら任意の効果音で知らせてくれる
-★★
-browser
- 
- 	 	
-閲覧者機能
-1.発表者だけではなく、発表者と複数の閲覧者がこのシステムの画面をネットワーク経由で見れる様にする
-★★
-Node.js
- 
- 	 	
-リアルタイム画像検索機能
-1.テーマに従って画像を自動的に検索して表示してくれる
-2.いわゆる「セーフサーチ」のON/OFFは設定でき、デフォルトでONとすること
-★★★
-Node.js, browser
- 
- 	 	
-画像表示のトランジット機能
-1.画像の表示順を「ランダム」と「適合度順」で選べること
-2.画像を「ディゾルブ」、「スクロール（横）」、「スクロール（縦）」、「ランダム」でトランジットできること
-★★★
-browser
- 
- 	 	
-画像検索キーワードの時間変化機能
-1.時間に応じてキーワードが自動的に切り替わる機能に対応する
-★
-browser
- 
- 	 	
-閲覧者アクション機能
-1.閲覧している第三者がボタンで発表者システムで効果音と画面エフェクトが発生する
-2.複数を発表者が有効無効を切り替えて設置できる
-3.「拍手」、「いいね！」、「Boooooo」の３つを標準で提供する
-4.この機能は発表者が任意に「ボタン名」、「表示アイコン」、「効果音」、「エフェクト」の組み合わせをカスタマイズできる
-★★★★
-Node.js, browser
+Creative Commons Attribution-NonCommercial 3.0
+ www.fancyapps.com/fancybox/#license
+
+Copyright © s-hoshino.com All Rights Reserved.
+ http://www.s-hoshino.com/
+
+Copyright © 2004-2012 On-Jin ~音人~&E.EFFECT All rights Reserved.
+ http://www.yen-soft.com/ssse/sound/
+
+Copyright © 2012 01Earth,inc. All Rights Reserved.
+ http://www.01earth.net/sample/effect.html
+
+Copyright © Compact Creative Limited 2005-2012
+http://designshack.net/articles/css/5-cool-css-hover-effects-you-can-copy-and-paste
+
+Copyright © Google All Rights Reserved.
+
+◆ファイル構成
+1.Image ・・・背景画像
+2.fancybox・・画像拡大に使う画像、CSS、js
+3.js・・・・・いろいろなjsファイル
+4.se・・・・・音声ファイル
+
+◆機能説明
+★カウントダウンタイマー
+・発表者の任意に時間を設定できる
+・一分前になったら発表者を焦らせる機能有り
+・タイマーが０になると画面が家出する(クリックすると帰ってくる)
+
+★画像検索
+・キーワード入力で検索、検索ワードは複数でも可能
+・前へ、次へのボタンでページ切り替え
+・マウスカーソルを画像の上に置くとエフェクトがかかる
+・画像クリックで拡大し、＞を押すことで次の画像を表示する
+　拡大した画像は×か画像以外の場所をクリックすることで元に戻る
+
+◆使い方
+1.発表者が任意の時間をカウントダウンタイマーに設定する
+2.発表中に検索したいキーワードがあれば画像検索にキーワードを入れて画像を検索する
+3.気になった画像があったら画像をクリックすると拡大する
+4.あとは時間になったらおしまい
+5.時間が余ったら「あ」で画像検索しよう
