@@ -1,12 +1,13 @@
 ﻿  var no   = 0; 
-  var imgresults = new Array();
-  var imgsave    = new Array();
+  var imgResults = new Array();
+  var imgSave    = new Array();
   var page=0;
+  var maxViewImg=12;
   
   function OnLoad()
   {
   
-      var searchControl = new google.search.SearchControl();
+      var searchControl = new google.search.SearchControl(null);
 	  
       var imageSearch = new google.search.ImageSearch();
 	  
@@ -16,67 +17,59 @@
       drawOptions.setSearchFormRoot(document.getElementById("search"));
       searchControl.draw(document.getElementById("search_control"), drawOptions);
 	
+	  searchControl.setSearchStartingCallback(this, resultFormat,null);
+	
       // 検索完了時に呼び出されるコールバック関数を登録する　　　　　　　　この部分が検索結果？↓　　
       imageSearch.setSearchCompleteCallback( this, SearchComplete, [ imageSearch ] );
 	  
-      // 検索を実行する
-     // imageSearch.execute( 'sky' );
-	  
+  }
+  
+   function resultFormat(){
+		imgresults=[];
+		no=0;
   }
 
-   function drawing(imgid,flag){
+   function drawImage(frontId){
   
        var image;
 	   var atag;
-	   var id = imgid;
+	   var id = frontId;
 	   
-	   console.log("flag:"+flag);
-	   
-	   if(flag==0){
-			no = 0;
-			imgsave = imgresults.slice(0);
-	   }else{
-			imgsave = imgresults.slice(0);
-		
-	   }
-	   
-	   for(var i = 0 ; i < 12 ; i++){
-	   atag  = document.getElementById('a'+(i+1));
-	   image = document.getElementById('img'+(i+1));
+	   for(var i = 1 ; i <= maxViewImg ; i++){
+	   atag  = document.getElementById('a'+ i);
+	   image = document.getElementById('img' + i);
     // サムネイル画像のURL
 		if(imgresults[id]){
 	   image.src = imgresults[id][2];
 	   atag.href = imgresults[id++][1];
-	   console.log(atag.href);
 	   }else{
 	   image.src = "Image/no_image.png"
 	   }
 	   }
-	   console.log("page no:"+page);
   }
   
   function before(){
 		if(page > 0){
 			page--;
-			drawing(page*12,0);
+			drawImage(page*12);
 		}else{
-			drawing(0,0);
+			drawImage(0);
 		}
   }
   
   function next(){
 		if(page < (imgresults.length/12)-1){
 			page++;
-			drawing(page*12,0);
+			drawImage(page*12);
 		}
   }
   
   function SearchComplete( searcher )
   {
-	  setimgh(searcher);
+	  setImageInfo(searcher);
   }
   
-  function setimgh(searcher){
+  function setImageInfo(searcher){
 	// 結果オブジェクトを取得する
       var results = searcher.results;
 	  
@@ -100,11 +93,11 @@
 
         // 次のページを検索する
         searcher.gotoPage( nextPage );
-		console.log(nextPage);
     }
 	
 	if(currentPage == 3){
-		drawing(0,1);
+	    page=0;
+		drawImage(0);
 	}
   }
 
