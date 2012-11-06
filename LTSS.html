@@ -341,8 +341,8 @@ footer:hover {
 
 				<!--画像を検索するdiv-->
 				<div id="search">
-					<input type="text" value="" id="search_word" size="35"> <input
-						type="button" value="検索" ONCLICK="drawimg()" id="search_button">
+					<input type="text" value="" id="search_word" size="35">
+                    <input ype="button" value="検索" ONCLICK="drawimg()" id="search_button">
 				</div>
 
 				<!--ページを切り替えるボタンを置いているdiv-->
@@ -365,8 +365,8 @@ footer:hover {
 						type="radio" name="sound" value="OFF"> OFF
 
 					<p>セーフサーチ</p>
-					<input type="radio" name="S-search" value="ON" checked> ON
-					<input type="radio" name="S-search" value="OFF"> OFF
+					<input type="radio" name="S-search" value="ON" checked onClick="searchON()"> ON
+					<input type="radio" name="S-search" value="OFF" onClick="searchOFF()"> OFF
 				</form>
 			</div>
 

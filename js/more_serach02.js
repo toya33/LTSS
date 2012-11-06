@@ -2,7 +2,30 @@
   var imgResults = new Array();
   var imgSave    = new Array();
   var page=0;
+<<<<<<< HEAD
+<<<<<<< HEAD
+  var searchflg=0;
+  
+  //　セーフサーチON押下時の処理
+  function searchON()
+  {
+	  searchflg = 0;
+	  OnLoad();
+  }
+  
+  //　セーフサーチOFF押下時の処理
+  function searchOFF()
+  {
+	  searchflg = 1;
+	  OnLoad();
+  }
+  
+=======
   var maxViewImg=12;
+>>>>>>> a07f378347b8b39a92089073219669854469682c
+=======
+  var maxViewImg=12;
+>>>>>>> a07f378347b8b39a92089073219669854469682c
   
   function OnLoad()
   {
@@ -13,13 +36,27 @@
 	  
 	  searchControl.addSearcher(imageSearch);
 	  
+	  // セーフサーチの切り替え判定
+	  if(searchflg==0){
+		  imageSearch.setRestriction(google.search.Search.RESTRICT_SAFESEARCH,google.search.Search.SAFESEARCH_STRICT);
+	  } else if(searchflg==1){
+		  imageSearch.setRestriction(google.search.Search.RESTRICT_SAFESEARCH,google.search.Search.SAFESEARCH_OFF);
+	  }
+	  
 	  var drawOptions = new google.search.DrawOptions();
       drawOptions.setSearchFormRoot(document.getElementById("search"));
       searchControl.draw(document.getElementById("search_control"), drawOptions);
 	
+<<<<<<< HEAD
+<<<<<<< HEAD
+      // 検索完了時に呼び出されるコールバック関数を登録するこの部分が検索結果？↓　　
+=======
+=======
+>>>>>>> a07f378347b8b39a92089073219669854469682c
 	  searchControl.setSearchStartingCallback(this, resultFormat,null);
 	
       // 検索完了時に呼び出されるコールバック関数を登録する　　　　　　　　この部分が検索結果？↓　　
+>>>>>>> a07f378347b8b39a92089073219669854469682c
       imageSearch.setSearchCompleteCallback( this, SearchComplete, [ imageSearch ] );
 	  
   }
@@ -48,6 +85,7 @@
 	   }
   }
   
+  //前のページに遷移する処理
   function before(){
 		if(page > 0){
 			page--;
@@ -57,6 +95,7 @@
 		}
   }
   
+  //次のページに遷移する処理
   function next(){
 		if(page < (imgresults.length/12)-1){
 			page++;
