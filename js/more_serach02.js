@@ -2,8 +2,6 @@
   var imgResults = new Array();
   var imgSave    = new Array();
   var page=0;
-<<<<<<< HEAD
-<<<<<<< HEAD
   var searchflg=0;
   
   //　セーフサーチON押下時の処理
@@ -20,17 +18,13 @@
 	  OnLoad();
   }
   
-=======
   var maxViewImg=12;
->>>>>>> a07f378347b8b39a92089073219669854469682c
-=======
-  var maxViewImg=12;
->>>>>>> a07f378347b8b39a92089073219669854469682c
   
   function OnLoad()
   {
   
       var searchControl = new google.search.SearchControl(null);
+      searchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
 	  
       var imageSearch = new google.search.ImageSearch();
 	  
@@ -46,17 +40,11 @@
 	  var drawOptions = new google.search.DrawOptions();
       drawOptions.setSearchFormRoot(document.getElementById("search"));
       searchControl.draw(document.getElementById("search_control"), drawOptions);
-	
-<<<<<<< HEAD
-<<<<<<< HEAD
+
       // 検索完了時に呼び出されるコールバック関数を登録するこの部分が検索結果？↓　　
-=======
-=======
->>>>>>> a07f378347b8b39a92089073219669854469682c
 	  searchControl.setSearchStartingCallback(this, resultFormat,null);
 	
       // 検索完了時に呼び出されるコールバック関数を登録する　　　　　　　　この部分が検索結果？↓　　
->>>>>>> a07f378347b8b39a92089073219669854469682c
       imageSearch.setSearchCompleteCallback( this, SearchComplete, [ imageSearch ] );
 	  
   }
